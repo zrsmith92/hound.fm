@@ -2,37 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/home/zach/src/web/hound_fm/app"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/config"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/db"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/doc"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/lib"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/log"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/public"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/script"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/test"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/tmp"
-		},
-		{
-			"path": "/home/zach/src/web/hound_fm/vendor"
+			"path": "/home/zach/src/web/hound_fm"	
 		}
 	]
 }

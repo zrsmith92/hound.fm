@@ -58,16 +58,16 @@ $(function() {
 		return false;
 	}).delegate('.next-btn', 'click', function() {
 		if ( selectedTrack === null ) {
-			console.log($playerTracks.find('li:first-child a, tr:first-child'));
-			$playerTracks.find('li:first-child a, tr:first-child').click();
+			$playerTracks.find('li:first-child a, tbody tr:first-child').click();
 			return false;
 		}
 		var i = (selectedTrack + 1) % $playerTracks.find('tbody tr, li').length;
+
 		$playerTracks.find('tbody tr, li').eq(i).click();
 		return false;
 	}).delegate('.prev-btn', 'click', function() {
 		if ( selectedTrack === null ) {
-			$playerTracks.find('li:first-child a, tr:first-child').click();
+			$playerTracks.find('li:first-child a, tbody tr:first-child').click();
 			return false;
 		}
 

@@ -12,11 +12,15 @@
 
 	aside.span4#music-player
 		h6 Tracks
-		#player-status.clearfix
-			a.play-btn.play-pause-btn.sprite(href='#') Play
-			/! ZOMG I'M USING THE MARQUEE TAG LOLOLOLOLOL
-			marquee.current-track
-		ul#tracks-list
-			- @artist.tracks.find(:all, :limit => 10).each do |t|
-				li
-					a(href="#{ t.stream_url }" title=t.title) = t.title
+		- tracks = @artist.tracks.find(:all, :limit => 10)
+		- unless tracks.empty?
+			#player-status.clearfix
+				a.play-btn.play-pause-btn(href='#') Play
+				/! ZOMG I'M USING THE MARQUEE TAG LOLOLOLOLOL
+				marquee.current-track
+			ul#tracks-list
+				- tracks.each do |t|
+					li
+						a(href="#{ t.stream_url }" title=t.title) = t.title
+		- else
+			p.alert-message Sorry, no tracks available for this artist.

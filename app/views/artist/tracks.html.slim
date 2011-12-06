@@ -11,21 +11,28 @@
 		.page-header
 			h1 Tracks
 
-		#player-status.clearfix
-			a.prev-btn(href='#') Prev
-			a.play-btn.play-pause-btn.sprite(href='#') Play
-			a.next-btn(href='#') Next
-			.current-track
+		- tracks = @artist.tracks.find(:all)
+		- unless tracks.empty?
+			.row
 
-		table#tracks-list.zebra-striped
-			thead
-				tr
-					th Title
-					th Album
-					th Year
-			tbody
-				- @artist.tracks.find_all.each do |t|
-					tr(data-stream-url=t.stream_url)
-						td = t.title
-						td Coming Soon
-						td Coming Soon
+				#player-status.span3
+					.clearfix
+						a.prev-btn(href='#') Prev
+						a.play-btn.play-pause-btn(href='#') Play
+						a.next-btn(href='#') Next
+					.current-track
+
+				table#tracks-list.zebra-striped.span10
+					thead
+						tr
+							th Title
+							th Album
+							th Year
+					tbody
+						- tracks.each do |t|
+							tr(data-stream-url=t.stream_url)
+								td = t.title
+								td Coming Soon
+								td Coming Soon
+		- else
+			p.alert-message Sorry, no tracks available for this artist.

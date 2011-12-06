@@ -40,9 +40,45 @@
 	margin: 0 5px 5px 0;
 }
 
-.play-pause-btn, .next-btn, .prev-btn { display: block; width: 50px; height: 50px; }
-.play-btn {
-	background-position: -52px -198px;
+.play-btn, .pause-btn, .prev-btn, .next-btn {
+	text-indent: -09999px;   
+	position: relative;
+	display: block;
+	width: 50px;
+	height: 50px;
+	text-decoration: none !important;
+
+	&:after {
+		display: block;
+		content: "▶";
+		line-height: 38px;
+		text-align: center;
+		font-size: 32px;
+		color: #000;
+		text-decoration: none;
+		text-indent:0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 30px;
+		border: 5px solid #000;
+	}
+	&:hover:after { text-decoration: none; }
+}
+.next-btn:after {
+	content: "▶▶";
+	font-size: 20px;
+}
+.prev-btn:after {
+	content: "◀◀";
+	font-size: 20px;
+}
+
+.pause-btn:after {
+	content: "▮▮";
+	font-size: 24px;
 }
 
 .artist.index #music-player .play-pause-btn {
@@ -51,9 +87,10 @@
 }
 
 .artist.tracks {
-	.current-track { font-size: 18px; }
+	.current-track { font-size: 18px; margin-top: 20px;}
 
-	#tracks-list tr {
+
+	#tracks-list tbody tr {
 		cursor: pointer;
 
 		&:hover {
@@ -73,14 +110,15 @@
 	#player-status {
 		.play-pause-btn, .next-btn, .prev-btn {
 			float: left;
-			margin-right: 5px;
+		}
+
+		.next-btn, .prev-btn {
+			-webkit-transform: scale(0.8);
 		}
 	}
 }
 
-.pause-btn {
-	background-position: -2px -198px;
-}
+
 
 #tracks-list {
 	margin-left: 0;
