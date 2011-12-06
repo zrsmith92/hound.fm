@@ -38,11 +38,11 @@ module Hound
 				end
 				tracks = self.class.make_request("users/#{ artist_id }/tracks")
 
-				unless tracks.nil?
+				unless tracks.nil? || tracks['stream_url'].nil?
 					tracks.each do |track|
 						data[:tracks] << Hound::Media::Track.new({
 							:title => track['title'],
-							:download_url => track['download_url'] + "?client_id=#{ CLIENT_ID }",
+							:download_url => track['download_url'].nil? nil : track['download_url'] + "?client_id=#{ CLIENT_ID }",
 							:stream_url => track['stream_url'] + "?client_id=#{ CLIENT_ID }"
 						})
 					end
