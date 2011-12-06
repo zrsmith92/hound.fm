@@ -43,7 +43,7 @@ module Hound
 						data[:tracks] << Hound::Media::Track.new({
 							:title => track['title'],
 							:download_url => track['download_url'].nil? ? nil : track['download_url'] + "?client_id=#{ CLIENT_ID }",
-							:stream_url => track['stream_url'].nil? nil : track['stream_url'] + "?client_id=#{ CLIENT_ID }"
+							:stream_url => track['stream_url'].nil? ? nil : track['stream_url'] + "?client_id=#{ CLIENT_ID }"
 						})
 					end
 				end
