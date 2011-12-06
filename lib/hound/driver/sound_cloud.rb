@@ -42,7 +42,7 @@ module Hound
 					tracks.each do |track|
 						data[:tracks] << Hound::Media::Track.new({
 							:title => track['title'],
-							:download_url => track['download_url'].nil? nil : track['download_url'] + "?client_id=#{ CLIENT_ID }",
+							:download_url => track['download_url'].nil? ? nil : track['download_url'] + "?client_id=#{ CLIENT_ID }",
 							:stream_url => track['stream_url'] + "?client_id=#{ CLIENT_ID }"
 						})
 					end
