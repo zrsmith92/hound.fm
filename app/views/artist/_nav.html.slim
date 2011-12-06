@@ -1,0 +1,16 @@
+nav#left-nav.span3
+	ul
+		li
+			a(class="#{ 'active' if params[:action] == 'index' }" href="/artist/#{ @artist.slug }/") General
+		li
+			a(class="#{ 'active' if params[:action] == 'tracks' }" href="/artist/#{ @artist.slug }/tracks") Tracks
+		li
+			a(class="#{ 'active' if params[:action] == 'concerts' }" href="/artist/#{ @artist.slug }/concerts") Concerts
+		li
+			a(class="#{ 'active' if params[:action] == 'news' }" href="/artist/#{ @artist.slug }/news") News
+		li
+			a(class="#{ 'active' if params[:action] == 'photos' }" href="/artist/#{ @artist.slug }/photos") Photos
+		li
+			a(class="#{ 'active' if params[:action] == 'videos' }" href="/artist/#{ @artist.slug }/videos") Videos
+		li
+			a(class="#{ 'active' if params[:action] == 'similar' }" href="/artist/#{ @artist.slug }/similar") Similar Artists

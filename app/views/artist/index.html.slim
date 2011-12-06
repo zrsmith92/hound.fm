@@ -1,0 +1,22 @@
+.row
+	= render 'artist/nav'
+	.span9
+		.page-header
+			h1
+				= @artist.name + " "
+				small = @artist.genre
+		section.bio
+			- if image = @artist.images.find(:first)
+				img(src=image.thumb_url)
+			= sanitize @artist.bio
+
+	aside.span4#music-player
+		h6 Tracks
+		#player-status.clearfix
+			a.play-btn.play-pause-btn.sprite(href='#') Play
+			/! ZOMG I'M USING THE MARQUEE TAG LOLOLOLOLOL
+			marquee.current-track
+		ul#tracks-list
+			- @artist.tracks.find(:all, :limit => 10).each do |t|
+				li
+					a(href="#{ t.stream_url }" title=t.title) = t.title

@@ -1,0 +1,15 @@
+// Place all the styles related to the Search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#search, input[type=submit] {
+	font-size: 24px;
+	line-height: 2;
+	padding: 0 inherit;
+	height: auto;
+}
+#search {
+	padding: 0 10px;
+	width: 670px;
+}

@@ -1,0 +1,23 @@
+doctype html
+html
+	head
+		title = get_title(@artist, params)
+
+		= stylesheet_link_tag    "application"
+		= javascript_include_tag "top"
+		= csrf_meta_tags
+	body(class="#{ params[:controller] } #{ params[:action] }")
+		.container
+			header
+				h1
+					a(href='/') Hound.FM
+			#content.clearfix
+				= yield
+
+			footer
+				|									Copyright &copy; 2011
+				a href="http://zachary-smith.com/"	Zachary Smith
+				|									. All Rights Reserved.
+		
+		#j-player
+		= javascript_include_tag "application"

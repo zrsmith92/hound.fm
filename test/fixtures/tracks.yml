@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  stream_url: MyString
+  download_url: MyString
+  artist: 
+
+two:
+  title: MyString
+  stream_url: MyString
+  download_url: MyString
+  artist: 
