@@ -16,7 +16,7 @@ module Hound
 					:artist => a
 				})
 
-				return {} if r.nil? || r['results']['artistmatches']['artist'].nil?
+				return {} if r.nil? || r['results']['opensearch:totalResults'] == '0'
 				ret = {}
 
 				r['results']['artistmatches']['artist'].each do |a|
