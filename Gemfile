@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 # gem 'sqlite3'
 gem 'pg'
 
+gem 'thin'
+
 gem 'slim-rails'
 
 gem 'bootstrap-sass'
