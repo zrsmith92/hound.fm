@@ -4,6 +4,11 @@ $(function() {
 		$playerTracks = $("#tracks-list"),
 		$jPlayer = $("#j-player"),
 		$marquee = $('.current-track'),
+		$videoModal = $('#video-player').modal({
+			keyboard: true,
+			backdrop: true
+		}),
+
 		togglePlayBtns = function() {
 			$('.play-btn').removeClass('play-btn').addClass('pause-btn')
 		},
@@ -46,6 +51,8 @@ $(function() {
 		selectedTrack = $this.index();
 	});
 
+	$('.video-grid li a').attr('href', '#');
+
 	$(document.body).delegate('.play-btn', 'click', function() {
 		if ( selectedTrack === null ) {
 			$playerTracks.find('li:first-child a, tr:first-child').click();
@@ -75,6 +82,19 @@ $(function() {
 		$playerTracks.find('tbody tr, li').eq(i).click();
 		return false;
 
+	}).delegate('.video-grid li a', 'click', function() {
+		var $this = $(this),
+			embedUrl = $this.attr('data-embed-url');
+
+		if ( embedUrl ) {
+			
+			swfobject.embedSWF(embedUrl, 'video-content', '530', '298', '11', undefined, undefined, { allowFullScreen: true });
+
+			$videoModal.find('.modal-header h3').text($this.find('.video-title').text());
+			$videoModal.modal('show');
+
+			return false;
+		}
 	});
 
 

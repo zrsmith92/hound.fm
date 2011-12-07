@@ -118,6 +118,30 @@
 	}
 }
 
+.artist.videos {
+	.video-grid {
+		li {
+			margin-bottom: 20px;
+
+			a {
+				display: block;
+				padding: 10px;
+				background: #eee;
+
+				-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+				-moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+				-o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+				box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			}
+
+			.video-thumb {
+				float:left;
+				margin-right: 10px;
+			}
+		}
+	}
+}
+
 
 
 #tracks-list {

@@ -2,6 +2,7 @@ class Artist < ActiveRecord::Base
 
 	has_many :images
 	has_many :tracks
+	has_many :videos
 
 	serialize :hound_meta
 

@@ -1,2 +1,29 @@
-h1 Artist#videos
-p Find me in app/views/artist/videos.html.slim
+.row
+	= render 'artist/nav'
+	.span13
+		ul.breadcrumb
+			li
+				a(href="/artist/#{ @artist.slug }") = @artist.name
+				span.divider = "»"
+			li.active
+				| Videos
+				
+		.page-header
+			h1 Videos
+
+		- unless @videos.empty?
+			ul.video-grid.row
+				- @videos.each do |v|
+					li.span6
+						a.clearfix(href=v.src_url data-embed-url=v.embed_html)
+							img.video-thumb(src=v.thumb_url alt='thumbnail')
+							p.video-title = v.title
+		- else
+			p.alert-message Sorry, no videos available for this artist.
+
+#video-player.modal
+	.modal-header
+		a.close(href='#') ×
+		h3 Video
+	.modal-body
+		#video-content

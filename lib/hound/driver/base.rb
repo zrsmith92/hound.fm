@@ -11,7 +11,7 @@ module Hound
 			end
 
 			def self.lookup(a)
-				[]
+				{}
 			end
 
 		end

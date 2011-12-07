@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206071723) do
+ActiveRecord::Schema.define(:version => 20111207022257) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -45,5 +45,19 @@ ActiveRecord::Schema.define(:version => 20111206071723) do
   end
 
   add_index "tracks", ["artist_id"], :name => "index_tracks_on_artist_id"
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "embed_html"
+    t.string   "download_url"
+    t.string   "thumb_url"
+    t.string   "src_url"
+    t.integer  "artist_id"
+    t.text     "hound_meta"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "videos", ["artist_id"], :name => "index_videos_on_artist_id"
 
 end

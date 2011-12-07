@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	# TODO ugly. fix.
 	Hound::Crawler.attach_driver(Hound::Driver::LastFM)
 	Hound::Crawler.attach_driver(Hound::Driver::SoundCloud)
+	Hound::Crawler.attach_driver(Hound::Driver::Youtube)
 
 	def call_rake(task, options = {})
 		options[:rails_env] ||= Rails.env

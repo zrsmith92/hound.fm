@@ -19,7 +19,15 @@ module Hound
 				return {} if r.nil? || r['results']['opensearch:totalResults'] == '0'
 				ret = {}
 
-				r['results']['artistmatches']['artist'].each do |a|
+				#stupid stupid stupid...
+				if r['results']['artistmatches']['artist'].is_a?(Hash)
+					artists = [ r['results']['artistmatches']['artist'] ]
+				else
+					artists = r['results']['artistmatches']['artist']
+				end
+
+				artists.each do |a|
+					puts a
 					ret[a['name']] = {
 						:lastfm => {
 							:url => a['url']
@@ -86,7 +94,6 @@ module Hound
 					end
 				end
 
-				#puts data.inspect
 				return data
 			end
 

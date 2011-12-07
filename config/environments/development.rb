@@ -27,4 +27,8 @@ HoundFm::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Don't use a cache for any hound scrapes
+  # config.no_cache = true
+
 end

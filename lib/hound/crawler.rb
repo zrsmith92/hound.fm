@@ -44,6 +44,17 @@ module Hound
 				})
 			end
 
+			artist.videos.delete_all
+			data[:videos].each do |v|
+				artist.videos << Video.create({
+					:title => v.title,
+					:embed_html => v.embed_html,
+					:src_url => v.src_url,
+					:download_url => v.download_url,
+					:thumb_url => v.thumb_url
+				})
+			end
+
 			artist.hound_status = STATUS_IDLE
 			artist.save
 		end
@@ -139,6 +150,10 @@ module Hound
 
 				unless d[:images].nil?
 					data[:images] |= d[:images]
+				end
+
+				unless d[:videos].nil?
+					data[:videos] |= d[:videos]
 				end
 
 				# unless d[:videos].nil?

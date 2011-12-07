@@ -11,8 +11,7 @@
 		.page-header
 			h1 Tracks
 
-		- tracks = @artist.tracks.find(:all)
-		- unless tracks.empty?
+		- unless @tracks.empty?
 			.row
 
 				#player-status.span3
@@ -29,7 +28,7 @@
 							th Album
 							th Year
 					tbody
-						- tracks.each do |t|
+						- @tracks.each do |t|
 							tr(data-stream-url=t.stream_url)
 								td = t.title
 								td Coming Soon
