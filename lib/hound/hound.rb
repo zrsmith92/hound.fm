@@ -14,5 +14,4 @@ module Hound
 
 	DRIVER_DIR = "#{ File.dirname(__FILE__) }/drivers"	
 
-
 end

@@ -27,7 +27,6 @@ module Hound
 				end
 
 				artists.each do |a|
-					puts a
 					ret[a['name']] = {
 						:lastfm => {
 							:url => a['url']
@@ -58,7 +57,7 @@ module Hound
 					data[:bio] = r['bio']['content']
 				end
 
-				if r['tags']
+				if r['tags'] && r['tags']['tag']
 					tags = r['tags']['tag'].map{|t| t['name'] }
 					data[:genre] = tags.join('/')
 				end
@@ -83,7 +82,7 @@ module Hound
 
 							unless track['downloadurl'].nil?
 								data[:tracks] << Hound::Media::Track.new({
-									:title => track['name'],
+									:title => Hound::Util.clean_text(track['name'], @artist),
 									:download_url => track['downloadurl'],
 									:stream_url => track['streamable']['fulltrack'] == "1" ? track['downloadurl'] : nil
 								})

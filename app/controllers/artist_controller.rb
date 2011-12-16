@@ -4,10 +4,12 @@ class ArtistController < ApplicationController
 
   def index
     @tracks = @artist.tracks.find(:all, :limit => 10)
+    handle_ajax(:tracks => @tracks)
   end
 
   def tracks
     @tracks = @artist.tracks.find(:all)
+    handle_ajax(:tracks => @tracks)
   end
 
   def events
@@ -21,6 +23,7 @@ class ArtistController < ApplicationController
 
   def videos
     @videos = @artist.videos.find(:all)
+    handle_ajax(:videos => @videos)
   end
 
   def similar
@@ -30,7 +33,7 @@ private
   def find_artist
     @artist = Artist.find_by_slug(params[:slug])
     
-    redirect_to '/' if @artist.nil?
+    # redirect_to('/') if @artist.nil?
 
     if  @artist.hound_status == Hound::STATUS_NEVER_RUN || 
         (@artist.hound_status == Hound::STATUS_IDLE && DateTime.now.in_time_zone - @artist.updated_at > 1.week) ||

@@ -6,11 +6,11 @@ html
 		= stylesheet_link_tag    "application"
 		= javascript_include_tag "top"
 		= csrf_meta_tags
-	body(class="#{ params[:controller] } #{ params[:action] }")
+	body(class=body_classes(params))
 		.container
 			header
 				h1
-					a(href='/') Hound.FM
+					a#home-link(href='/') Hound.FM
 			#content.clearfix
 				= yield
 

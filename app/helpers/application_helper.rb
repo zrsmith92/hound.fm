@@ -12,4 +12,10 @@ module ApplicationHelper
 
 	end
 
+	def body_classes(params)
+
+		"#{ params[:controller] } #{ params[:action] }"
+
+	end
+
 end

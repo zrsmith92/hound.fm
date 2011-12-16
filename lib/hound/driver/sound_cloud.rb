@@ -41,7 +41,7 @@ module Hound
 				unless tracks.nil?
 					tracks.each do |track|
 						data[:tracks] << Hound::Media::Track.new({
-							:title => track['title'],
+							:title => Hound::Util.clean_text(track['title'], @artist),
 							:download_url => track['download_url'].nil? ? nil : track['download_url'] + "?client_id=#{ CLIENT_ID }",
 							:stream_url => track['stream_url'].nil? ? nil : track['stream_url'] + "?client_id=#{ CLIENT_ID }"
 						})

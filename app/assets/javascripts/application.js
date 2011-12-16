@@ -6,4 +6,38 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./historyjs/jquery.history.js
 //= require_directory .
+
+
+
+(function() {
+	$.expr[':'].internal = function(obj, index, meta, stack){
+		// Prepare
+		var $this = $(obj),
+			url = $this.attr('href')||'',
+			isInternalLink;
+
+		// Check link
+		isInternalLink = url.substring(0,Common.rootUrl.length) === Common.rootUrl || url.indexOf(':') === -1;
+
+		// Ignore or Keep
+		return isInternalLink;
+	};
+
+	$(function() {
+
+		$(window).bind('statechange', Common.stateChange);
+
+		Common.content.delegate('a:internal', 'click', function(event) {
+			// Continue as normal for cmd clicks etc
+			if ( event.which == 2 || event.metaKey ) { return true; }
+
+			History.pushState(null, null, $(this).attr('href'));
+
+			event.preventDefault();
+			return false;
+		});
+	});
+
+})();

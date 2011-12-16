@@ -31,7 +31,7 @@ class Artist < ActiveRecord::Base
 				})
 			end
 
-			artists.push(a[:name])
+			artists.push(name)
 		end
 		
 		# return list of partial matches for the user to choose from

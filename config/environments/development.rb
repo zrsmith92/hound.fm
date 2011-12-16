@@ -29,6 +29,6 @@ HoundFm::Application.configure do
   config.assets.debug = true
 
   # Don't use a cache for any hound scrapes
-  # config.no_cache = true
+  #config.no_cache = true
 
 end
